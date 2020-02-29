@@ -49,7 +49,9 @@ app.get('/weather', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-    res.send('<h1>About</h1>')
+    res.render('about', {
+        name: 'Davit Vardanyan'
+    })
 })
 
 app.get('*', (req, res) => {

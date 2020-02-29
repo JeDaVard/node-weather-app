@@ -9,7 +9,7 @@ function forecast(latitude, longitude, callback) {
         } else if (data.body.error) {
             callback('Unable to find location', undefined)
         } else {
-            callback(undefined, `${data.body.currently.temperature}, ${data.body.minutely.summary}`)
+            callback(undefined, `${data.body.currently.temperature+'ºC'}, ${data.body.minutely.summary}`)
         }
     })
 }

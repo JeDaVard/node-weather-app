@@ -1,4 +1,5 @@
 const form = document.querySelector('form');
+form.nextElementSibling.hidden = true;
 
 form.lastElementChild.onclick = (e) => {
     e.preventDefault();
@@ -6,10 +7,13 @@ form.lastElementChild.onclick = (e) => {
     const loc = form.children[0].value;
     fetch('/weather?address=' + loc).then((response) => {
         response.json().then((data) => {
+            form.nextElementSibling.hidden = false;
             if (data.error) {
-                form.previousElementSibling.innerHTML = data.error
+                form.nextElementSibling.children[0].innerHTML = data.error;
+                form.nextElementSibling.children[1].innerHTML = '';
             } else {
-                form.previousElementSibling.innerHTML = data.location + '\n' + data.forecast
+                form.nextElementSibling.children[0].innerHTML = data.forecast;
+                form.nextElementSibling.children[1].innerHTML = data.location;
             }
         })
     })
