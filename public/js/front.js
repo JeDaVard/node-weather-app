@@ -15,6 +15,7 @@ form.lastElementChild.onclick = (e) => {
                 form.nextElementSibling.children[0].innerHTML = data.forecast;
                 form.nextElementSibling.children[1].innerHTML = data.location;
             }
+            form.firstElementChild.value = '';
         })
     })
 }
